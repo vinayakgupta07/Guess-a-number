@@ -1,2 +1,15 @@
-# Guess-a-number
-Guess the Number is a simple JavaScript game where the user tries to guess a randomly generated number. The game provides hints like too high or too low and tracks the number of attempts, demonstrating basic logic and DOM manipulation.
+Guess The Number Game 🎯
+
+A simple JavaScript game where the user tries to guess
+a randomly generated number.
+
+Features:
+- Random number generation
+- Attempt counter
+- Hint messages
+- Restart game
+
+Tech Used:
+- HTML
+- CSS
+- JavaScript
