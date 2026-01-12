@@ -45,14 +45,48 @@ function validateGuess(guess){
 }
 
 function checkguess(guess){
-
+if(guess==randomnumber){
+    displayguess(`you guessed it correct`)
+    endgame()
+}
+else if(guess<randomnumber){
+    displaymessage(`number is too low`)
+}
+else if(guess>randomnumber){
+    displaymessage(`number is too high`)
+}
 }
 
 function displayguess(guess){
-
+userInput.value='';
+guessslot.innerHTML+=`${guess} `
+numGuess++;
+remaining.innerHTML=`${11-numGuess}`
 
 }
 
-function displaymessage(message){}
-function endgame(message){}
-function newgame(message){}
+function displaymessage(message){
+    lowOrHi.innerHTML=`<h2>${message}</h2>`
+}
+function endgame(){
+    userInput=''
+    userInput.setAttribute('disable','')
+    p.classList.add('button')
+    p.innerHTML=`<h2 id="newgame"></h2>`;
+    startover.appendChild(p)
+    playgame=false;
+    newgame()
+}
+function newgame(){
+    const newGameButton=document.querySelector('#newgame')
+    newGameButton.addEventListener('click',function(e){
+         randomnumber=parseInt(Math.random() * 100 + 1);  
+         prevGuess=[];
+         numGuess=1;
+         guessslot.innerHTML=''
+         remaining.innerHTML=`${10-numGuess}`
+         userInput.removeAttribute('disable')
+         startover.removeChild(p)
+        playgame=true
+    })
+}
